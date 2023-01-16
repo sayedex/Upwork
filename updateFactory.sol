@@ -158,8 +158,8 @@ contract Factory is IERC721Receiver{
    /**
      * @dev  {ALLtransferBySubContract}.
      * from : start subcontract id
-     * to : like you want to loop 0-1,2 suncontract then pass 2
-     * tokenid: pass token id => for example: you minted 4,5,6 then pass 3..if your nft starting from 10 then pass 9 :)
+     * to : like you want to loop 0-1, 2suncontract then pass 2
+     * tokenid: pass token id => for example: you minted 4,5,6 then pass 4
      */
    function ALLtransferBySubContract(
     address nft,
@@ -169,11 +169,30 @@ contract Factory is IERC721Receiver{
     ) external onlyOwner{
         uint256 tokenid = token;
         for(uint i = from; i < to; i++) {
-            tokenid++;
             NftMinter(minters[i]).Restorebysingleid(nft,tokenid);
+            tokenid++;
         
         }
     }
+
+
+   /**
+     * @dev  {TransferdifferentID}.
+     * tokenid :[tokenid,tokenid]
+     * minter == []lenght 
+     */
+
+  function TransferdifferentID(address nft,  
+    uint from,
+    uint to,
+    uint256[] calldata tokenid
+    ) external {
+        uint256 _length = tokenid.length;
+         for (uint256 i = from; i < to; i++ ) {
+            NftMinter(minters[i]).Restorebysingleid(nft,tokenid[i]);
+        }
+   
+  }
 
 
 
