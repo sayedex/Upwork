@@ -7,10 +7,16 @@ pragma solidity ^0.8.0;
 contract NftMinter is IERC721Receiver{
 
     address public admin;
+    address public factory;
     mapping(address => uint256[]) private tokenIdsByContract;
     constructor(address _admin) {
         admin = _admin;
+        factory = msg.sender;
     }
+     modifier onlyOwner(){
+         require(msg.sender==admin || msg.sender== factory,"you are not owner");
+        _; 
+     }
 
     function mint(
         address nft,
@@ -29,6 +35,13 @@ contract NftMinter is IERC721Receiver{
         }
         delete tokenIdsByContract[nft];
     }
+
+  function adminChange(address newOwner) external onlyOwner {
+    require(newOwner!=address(0),"invalid address");
+    admin = newOwner;
+
+  }
+
 
   function RestorebymultipleID(address nft,uint256[] calldata tokenid) external {
         uint256 _length = tokenid.length;
@@ -79,10 +92,13 @@ contract Factory is IERC721Receiver{
         return abi.encodePacked(bytecode, abi.encode(admin));
     }
 
-    
+     modifier onlyOwner(){
+         require(msg.sender==admin,"you are not owner");
+        _; 
+     }
 
 
-    function deploy(uint256 amount) external {
+    function deploy(uint256 amount) external  onlyOwner {
         bytes memory bytecode = getBytecode();
         for(uint256 i = 0; i < amount; i ++) {
             address addr;
@@ -109,7 +125,7 @@ contract Factory is IERC721Receiver{
         address nft,
         uint256 amount,
         bytes calldata param
-    ) external payable {
+    ) external payable onlyOwner{
         uint256 price = msg.value / amount;
         for(uint256 i = 0; i < amount; i ++) {
             NftMinter(minters[i]).mint{value: price}(nft, param);
@@ -121,7 +137,7 @@ contract Factory is IERC721Receiver{
     function transferBySubContract(
         address nft,
         uint256 amount
-    ) external {
+    ) external onlyOwner{
         for(uint256 i = 0; i < amount; i ++) {
             NftMinter(minters[i]).transfer(nft);
         }
@@ -132,11 +148,34 @@ contract Factory is IERC721Receiver{
     address nft,
     uint from,
     uint to
-    ) external {
+    ) external onlyOwner{
         for(uint i = from; i < to; i++) {
             NftMinter(minters[i]).transfer(nft);
         }
     }
+
+
+   /**
+     * @dev  {ALLtransferBySubContract}.
+     * from : start subcontract id
+     * to : like you want to loop 0-1,2 suncontract then pass 2
+     * tokenid: pass token id => for example: you minted 4,5,6 then pass 3..if your nft starting from 10 then pass 9 :)
+     */
+   function ALLtransferBySubContract(
+    address nft,
+    uint from,
+    uint to,
+    uint256 token
+    ) external onlyOwner{
+        uint256 tokenid = token;
+        for(uint i = from; i < to; i++) {
+            tokenid++;
+            NftMinter(minters[i]).Restorebysingleid(nft,tokenid);
+        
+        }
+    }
+
+
 
 
 //call it only if onERC721Received not work! 
@@ -146,7 +185,7 @@ contract Factory is IERC721Receiver{
        address nft,
        uint256[] calldata tokenid,
        uint256 subcontractId
-   ) external {
+   ) external onlyOwner{
    NftMinter(minters[subcontractId]).RestorebymultipleID(nft,tokenid);
 
    }
@@ -158,7 +197,7 @@ contract Factory is IERC721Receiver{
      * uint256[] array of tokenid like [1,2]
      */
 
-  function RestoreFactorynft(address nft,uint256[] calldata tokenid) external {
+  function RestoreFactorynft(address nft,uint256[] calldata tokenid) external onlyOwner{
         uint256 _length = tokenid.length;
          for (uint256 i = 0; i < _length; i++ ) {
             IERC721(nft).transferFrom(address(this), admin, tokenid[i]);
@@ -171,7 +210,7 @@ contract Factory is IERC721Receiver{
         address nft,
         uint256 amount,
         bytes calldata param
-    ) external {
+    ) external onlyOwner{
         for(uint256 i = 0; i < amount; i ++) {
             (bool success, ) = nft.call(param);
             require(success);
@@ -183,12 +222,28 @@ contract Factory is IERC721Receiver{
         address nft,
         uint256 amount,
         bytes calldata param
-    ) external {
+    ) external onlyOwner{
         for(uint256 i = 0; i < amount; i ++) {
             (bool success, ) = nft.call(param);
             require(success);
         }
     }
+
+
+
+/**
+   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+   * @param newOwner The address to transfer ownership to. 
+   */
+  function transferOwnership(address newOwner) external onlyOwner {
+    require(newOwner!=address(0),"invalid address");
+   uint256 _salt =salt;
+   for(uint256 i =0;i<_salt;i++){
+     NftMinter(minters[i]).adminChange(newOwner);
+   }
+    admin = newOwner;
+
+  }
 
    /**
      * @dev  {tokenbalanceBySubcontract}.

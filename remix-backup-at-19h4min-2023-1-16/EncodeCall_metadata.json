@@ -1,0 +1,80 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "encodeCall",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"encode.sol": "EncodeCall"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 9900000
+		},
+		"remappings": []
+	},
+	"sources": {
+		"IERC721A.sol": {
+			"keccak256": "0xd369e9647904487d09c2aaa736baa5d7a4629d699e8d04cd6eb365b4921422ae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7d76a2749515b1cc5dfafcae19738f0360bb4cdbb480b755bce38a837ce0566d",
+				"dweb:/ipfs/QmTfrYAMbdSsWq529WqTRun8LpxTP3kwoQzLU18ode4NbS"
+			]
+		},
+		"encode.sol": {
+			"keccak256": "0x7032375760e226179156142761d4c04873047e27e6d717181d1abcbb62185b06",
+			"urls": [
+				"bzz-raw://28255a1fcf13d1bc0ad785269945ebfdc2ca15a19531ea1e9efae617786bf922",
+				"dweb:/ipfs/Qmaj8WtgLhhE1ChJdj9gQDcGC5JkMbA7HXzAh4LT6kQ68Q"
+			]
+		},
+		"newone.sol": {
+			"keccak256": "0x23187630666a76311fdafa516fe06602cc9ab3654ebf68299cd4038f6560baac",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://477f99a2090b6b209753903efc028c62c34e01ff6f830304582793e8ff86faf6",
+				"dweb:/ipfs/QmPhTaxvvyYwGn9WZywMKdVAznHZKUuiXaZbkULgEkEGbg"
+			]
+		}
+	},
+	"version": 1
+}

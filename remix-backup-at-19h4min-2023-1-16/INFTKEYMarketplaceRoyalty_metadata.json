@@ -1,0 +1,146 @@
+{
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "SetRoyalty",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					}
+				],
+				"name": "royalty",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "recipient",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "feeFraction",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "setBy",
+								"type": "address"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "setRoyalty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"royalty(address)": {
+					"details": "Royalty fee",
+					"params": {
+						"erc721Address": "to read royalty"
+					},
+					"returns": {
+						"_0": "royalty information"
+					}
+				},
+				"setRoyalty(address,address,uint256)": {
+					"details": "Royalty fee",
+					"params": {
+						"erc721Address": "to read royalty"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"All/INFTKEYMarketplaceRoyalty.sol": "INFTKEYMarketplaceRoyalty"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"All/INFTKEYMarketplaceRoyalty.sol": {
+			"keccak256": "0x06de685537b2a4422f65ead445d12e9bc5942436308417375fdb6340697ef54f",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://03cc010a6ed792e45f1518092cd0f45ab08d627f1e4598aabf5ec50ff4ac4c32",
+				"dweb:/ipfs/QmPfGZkcCzcKZZuQrj7RCm3KiVAPyS3HDea8gvNKyEUJoS"
+			]
+		}
+	},
+	"version": 1
+}

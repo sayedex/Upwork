@@ -1,0 +1,81 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"details": "Provides information about the current execution context, including the sender of the transaction and its data. While these are generally available via msg.sender and msg.data, they should not be accessed in such a direct manner, since when dealing with meta-transactions the account sending and paying for execution may not be the actual sender (as far as an application is concerned). This contract is only required for intermediate, library-like contracts.",
+			"kind": "dev",
+			"methods": {},
+			"stateVariables": {
+				"__gap": {
+					"details": "This empty reserved space is put in place to allow future versions to add new variables without shifting down storage in the inheritance chain. See https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps"
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NFT/ContextUpgradeable.sol": "ContextUpgradeable"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"NFT/AddressUpgradeable.sol": {
+			"keccak256": "0x08b27727ecbc265978521daecb3f197694734289ca19a30854eaeb9142ec538d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1220be52f271588668a52adf5f64f54d3779258061dc19899b7f5b035819e7c6",
+				"dweb:/ipfs/QmZhV5JpcLYGArKkjFbpqRZDQN7WCpAtwsD9QWRyM5ZJrf"
+			]
+		},
+		"NFT/ContextUpgradeable.sol": {
+			"keccak256": "0xddf06b53b8366603c994b214dd90e3071869fc1133ade21a74dbd64ea531a112",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d0aa836b71660a46a3adafdc8bca5d20a02fd81da48418be99b0d09a1342e58b",
+				"dweb:/ipfs/QmQZ2ACmnq5BnGrs6aXBqaJe9W2EaMaX3KbhFzTbGco3dy"
+			]
+		},
+		"NFT/Initializable.sol": {
+			"keccak256": "0x3871b91021c9e000086cee7aab7194949dd3acdc7099d3b5c5043d3624dc64db",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c0fc5f1f5e51ef33c0aea296606f166f74260a236cab4e505a79427ddb27b4d1",
+				"dweb:/ipfs/QmZon5jXQrnXnwouv7sLAWJE9YgKHMDmHrN5QwAtonzM1W"
+			]
+		}
+	},
+	"version": 1
+}

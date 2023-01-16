@@ -1,0 +1,106 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenURI",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Implement this if you want your extension to have overloadable URI's",
+			"kind": "dev",
+			"methods": {
+				"supportsInterface(bytes4)": {
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"tokenURI(address,uint256)": {
+					"notice": "Get the uri for a given creator/tokenId"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NFT/ICreatorExtensionTokenURI1.sol": "ICreatorExtensionTokenURI"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 9900000
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"NFT/ICreatorExtensionTokenURI1.sol": {
+			"keccak256": "0x3df22ee1f66e32d766db99c5ddd68b3000aaaabceb34342c026daea199db6d72",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ac9007a25c9802aadf176f30ad040e53a141f6efcaa5a711a6c3ced28e88455e",
+				"dweb:/ipfs/QmXFXfMJydEXM3T7UvVD71qVSUP9k7oeFjG9JVzvChp7En"
+			]
+		}
+	},
+	"version": 1
+}

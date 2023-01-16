@@ -1,0 +1,136 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "approveTransfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "enabled",
+						"type": "bool"
+					}
+				],
+				"name": "setApproveTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"approveTransfer(address,address,address,uint256)": {
+					"details": "Called by creator contract to approve a transfer"
+				},
+				"setApproveTransfer(address,bool)": {
+					"details": "Set whether or not the creator will check the extension for approval of token transfer"
+				},
+				"supportsInterface(bytes4)": {
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Implement this if you want your extension to approve a transfer",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NFT/IERC721CreatorExtensionApproveTransfer.sol": "IERC721CreatorExtensionApproveTransfer"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"NFT/IERC721CreatorExtensionApproveTransfer.sol": {
+			"keccak256": "0xbad8054b73dbdd8505c81e2db02097962b0e61ff9cf6d829079d2a16ae18b81e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c1a21517ebb6d87adc5b428c74ebaa0a04af4b237a838090deae754fda61c41",
+				"dweb:/ipfs/QmPrFKm9LXBNP2VDvHCN5mxDyasxVd8bV6vCsdApbBBYn1"
+			]
+		}
+	},
+	"version": 1
+}

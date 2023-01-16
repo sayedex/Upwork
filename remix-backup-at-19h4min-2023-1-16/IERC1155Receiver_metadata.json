@@ -1,0 +1,197 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "values",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155BatchReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)": {
+					"details": "Handles the receipt of a multiple ERC1155 token types. This function is called at the end of a `safeBatchTransferFrom` after the balances have been updated. NOTE: To accept the transfer(s), this must return `bytes4(keccak256(\"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)\"))` (i.e. 0xbc197c81, or its own function selector).",
+					"params": {
+						"data": "Additional data with no specified format",
+						"from": "The address which previously owned the token",
+						"ids": "An array containing ids of each token being transferred (order and length must match values array)",
+						"operator": "The address which initiated the batch transfer (i.e. msg.sender)",
+						"values": "An array containing amounts of each token being transferred (order and length must match ids array)"
+					},
+					"returns": {
+						"_0": "`bytes4(keccak256(\"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)\"))` if transfer is allowed"
+					}
+				},
+				"onERC1155Received(address,address,uint256,uint256,bytes)": {
+					"details": "Handles the receipt of a single ERC1155 token type. This function is called at the end of a `safeTransferFrom` after the balance has been updated. NOTE: To accept the transfer, this must return `bytes4(keccak256(\"onERC1155Received(address,address,uint256,uint256,bytes)\"))` (i.e. 0xf23a6e61, or its own function selector).",
+					"params": {
+						"data": "Additional data with no specified format",
+						"from": "The address which previously owned the token",
+						"id": "The ID of the token being transferred",
+						"operator": "The address which initiated the transfer (i.e. msg.sender)",
+						"value": "The amount of tokens being transferred"
+					},
+					"returns": {
+						"_0": "`bytes4(keccak256(\"onERC1155Received(address,address,uint256,uint256,bytes)\"))` if transfer is allowed"
+					}
+				},
+				"supportsInterface(bytes4)": {
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"test.sol": "IERC1155Receiver"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0xab28a56179c1db258c9bf5235b382698cb650debecb51b23d12be9e241374b68",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://daae589a9d6fa7e55f99f86c0a16796ca490f243fb3693632c3711c0646c1d56",
+				"dweb:/ipfs/QmR3zpd7wNw3rcUdekwiv6FYHJqksuTCXLVioTxu6Fbxk3"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+			"keccak256": "0xa82b58eca1ee256be466e536706850163d2ec7821945abd6b4778cfb3bee37da",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e75cf83beb757b8855791088546b8337e9d4684e169400c20d44a515353b708",
+				"dweb:/ipfs/QmYvPafLfoquiDMEj7CKHtvbgHu7TJNPSVPSCjrtjV8HjV"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"test.sol": {
+			"keccak256": "0x368515b2bdaf91238006e45d28b641f6fe927fd511d31eca554914bbf6ea6c16",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1f12e9a2577f10e009219d874a90ee745a066657cfd078585a6c3cb6fe90867b",
+				"dweb:/ipfs/QmP4tF63DpSFv7R6jBPuM8BxG8qv2bPxKA8EmvFevaU4eE"
+			]
+		}
+	},
+	"version": 1
+}

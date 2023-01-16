@@ -1,0 +1,287 @@
+{
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "SetRoyalty",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "defaultRoyaltyFraction",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					}
+				],
+				"name": "royalty",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "recipient",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "feeFraction",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "setBy",
+								"type": "address"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "royaltyUpperLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newRecipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "setRoyalty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newRecipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "setRoyaltyForCollection",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newUpperLimit",
+						"type": "uint256"
+					}
+				],
+				"name": "updateRoyaltyUpperLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"royalty(address)": {
+					"details": "Royalty fee",
+					"params": {
+						"erc721Address": "to read royalty"
+					},
+					"returns": {
+						"_0": "royalty information"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"All/NFTKEYMarketplaceRoyalty.sol": "NFTKEYMarketplaceRoyalty"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"All/INFTKEYMarketplaceRoyalty.sol": {
+			"keccak256": "0x06de685537b2a4422f65ead445d12e9bc5942436308417375fdb6340697ef54f",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://03cc010a6ed792e45f1518092cd0f45ab08d627f1e4598aabf5ec50ff4ac4c32",
+				"dweb:/ipfs/QmPfGZkcCzcKZZuQrj7RCm3KiVAPyS3HDea8gvNKyEUJoS"
+			]
+		},
+		"All/NFTKEYMarketplaceRoyalty.sol": {
+			"keccak256": "0x4e613a8218d5d9a4510cf69f4d60778944b3952c4006c63baa84afed8c6c41ab",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://41d21ebc22b078cc34f2c9943766eb6313c5e197d136fc8e691321ba774556c9",
+				"dweb:/ipfs/Qme98KTqkxPanEtLWLUQ3eKgSgnWHrwPpGNzySTrQrJHiM"
+			]
+		}
+	},
+	"version": 1
+}

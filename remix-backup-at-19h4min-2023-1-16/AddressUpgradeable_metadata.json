@@ -1,0 +1,46 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Collection of functions related to the address type",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NFT/AddressUpgradeable.sol": "AddressUpgradeable"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"NFT/AddressUpgradeable.sol": {
+			"keccak256": "0x08b27727ecbc265978521daecb3f197694734289ca19a30854eaeb9142ec538d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1220be52f271588668a52adf5f64f54d3779258061dc19899b7f5b035819e7c6",
+				"dweb:/ipfs/QmZhV5JpcLYGArKkjFbpqRZDQN7WCpAtwsD9QWRyM5ZJrf"
+			]
+		}
+	},
+	"version": 1
+}

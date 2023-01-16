@@ -1,0 +1,1725 @@
+{
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_paymentTokenAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "EndTimeUpdate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "categoryId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_categoryName",
+						"type": "string"
+					}
+				],
+				"name": "NewCategoryAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "Price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "Priceupdate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "SetRoyalty",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct INFTKEYMarketplaceV2.Bid",
+						"name": "bid",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "serviceFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "royaltyFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "TokenBidAccepted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct INFTKEYMarketplaceV2.Bid",
+						"name": "bid",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newbid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "TokenBidEntered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct INFTKEYMarketplaceV2.Bid",
+						"name": "bid",
+						"type": "tuple"
+					}
+				],
+				"name": "TokenBidWithdrawn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct INFTKEYMarketplaceV2.Listing",
+						"name": "listing",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "serviceFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "royaltyFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "TokenBought",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct INFTKEYMarketplaceV2.Listing",
+						"name": "listing",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					}
+				],
+				"name": "TokenDelisted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct INFTKEYMarketplaceV2.Listing",
+						"name": "listing",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "isAuction",
+						"type": "uint256"
+					}
+				],
+				"name": "TokenListed",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Changeprice",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "CheckListed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "isValid",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expireTimestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateEndTimeForAuction",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "acceptBidForToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "actionTimeOutRangeMax",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "actionTimeOutRangeMin",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_categoryName",
+						"type": "string"
+					}
+				],
+				"name": "addNewCategory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "buyToken",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "categories",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "categoryLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "enabled",
+						"type": "bool"
+					}
+				],
+				"name": "changeMarketplaceStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "timeInSec",
+						"type": "uint256"
+					}
+				],
+				"name": "changeMaxActionTimeLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "timeInSec",
+						"type": "uint256"
+					}
+				],
+				"name": "changeMinActionTimeLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "serviceFeeFraction_",
+						"type": "uint8"
+					}
+				],
+				"name": "changeSeriveFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "defaultRoyaltyFraction",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "delistToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expireTimestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "enterBidForToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "from",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "size",
+						"type": "uint256"
+					}
+				],
+				"name": "getBidderBids",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceV2.Bid[]",
+						"name": "bidderBids",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					}
+				],
+				"name": "getBidderTokenBid",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceV2.Bid",
+						"name": "validBid",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTokenBids",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceV2.Bid[]",
+						"name": "bids",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTokenHighestBid",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceV2.Bid",
+						"name": "highestBid",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "from",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "size",
+						"type": "uint256"
+					}
+				],
+				"name": "getTokenHighestBids",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "bidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceV2.Bid[]",
+						"name": "highestBids",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTokenListing",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceV2.Listing",
+						"name": "validListing",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "from",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "size",
+						"type": "uint256"
+					}
+				],
+				"name": "getTokenListings",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expireTimestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "category",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceV2.Listing[]",
+						"name": "listings",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isTradingEnabled",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expireTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "isauction",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_category",
+						"type": "uint256"
+					}
+				],
+				"name": "listToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					}
+				],
+				"name": "numTokenListings",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					}
+				],
+				"name": "numTokenWithBids",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paymentToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					}
+				],
+				"name": "royalty",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "recipient",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "feeFraction",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "setBy",
+								"type": "address"
+							}
+						],
+						"internalType": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "royaltyUpperLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "serviceFee",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newRecipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "setRoyalty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newRecipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "feeFraction",
+						"type": "uint256"
+					}
+				],
+				"name": "setRoyaltyForCollection",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newUpperLimit",
+						"type": "uint256"
+					}
+				],
+				"name": "updateRoyaltyUpperLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "erc721Address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawBidForToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"Changeprice(address,uint256)": {
+					"details": "See {Change item price from marketplace}. parms erc721 and tokenid"
+				},
+				"CheckListed(address,uint256)": {
+					"details": "CheckListed a token ",
+					"params": {
+						"tokenId": "erc721 token Id"
+					}
+				},
+				"UpdateEndTimeForAuction(address,uint256,uint256)": {
+					"details": "See {Change item endtime }. parms erc721 and tokenid & Endtimestamp"
+				},
+				"acceptBidForToken(address,uint256,address,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-acceptBidForToken}. Must be owner of this token Must have approved this contract to transfer token Must have a valid existing bid that matches"
+				},
+				"actionTimeOutRangeMax()": {
+					"details": "See {INFTKEYMarketplaceV2-actionTimeOutRangeMax}."
+				},
+				"actionTimeOutRangeMin()": {
+					"details": "See {INFTKEYMarketplaceV2-actionTimeOutRangeMin}."
+				},
+				"buyToken(address,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-buyToken}. Must have a valid listing msg.sender must not the owner of token msg.value must be at least sell price plus fees"
+				},
+				"changeMarketplaceStatus(bool)": {
+					"details": "Enable to disable Bids and Listing"
+				},
+				"changeMaxActionTimeLimit(uint256)": {
+					"details": "Change maximum listing and bid time range"
+				},
+				"changeMinActionTimeLimit(uint256)": {
+					"details": "Change minimum listing and bid time range"
+				},
+				"changeSeriveFee(uint8)": {
+					"details": "Change withdrawal fee percentage.",
+					"params": {
+						"serviceFeeFraction_": "Fraction of withdrawal fee based on 1000"
+					}
+				},
+				"delistToken(address,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-delistToken}. msg.sender must be the seller of the listing record"
+				},
+				"enterBidForToken(address,uint256,uint256,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-enterBidForToken}. People can only enter bid if bid is valid"
+				},
+				"getBidderBids(address,address,uint256,uint256)": {
+					"details": "get all bids of a bidder address",
+					"returns": {
+						"bidderBids": "All valid bids of a bidder"
+					}
+				},
+				"getBidderTokenBid(address,uint256,address)": {
+					"details": "See {INFTKEYMarketplaceV2-getBidderTokenBid}."
+				},
+				"getTokenBids(address,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-getTokenBids}."
+				},
+				"getTokenHighestBid(address,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-getTokenHighestBid}."
+				},
+				"getTokenHighestBids(address,uint256,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-getTokenHighestBids}."
+				},
+				"getTokenListing(address,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-getTokenListing}."
+				},
+				"getTokenListings(address,uint256,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-getTokenListings}."
+				},
+				"isTradingEnabled()": {
+					"details": "See {INFTKEYMarketplaceV2-isTradingEnabled}."
+				},
+				"listToken(address,uint256,uint256,uint256,uint256,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-listToken}. The timestamp set needs to be in the allowed range Listing must be valid"
+				},
+				"numTokenListings(address)": {
+					"details": "See {INFTKEYMarketplaceV2-numTokenListings}."
+				},
+				"numTokenWithBids(address)": {
+					"details": "See {INFTKEYMarketplaceV2-numTokenWithBids}."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"paymentToken()": {
+					"details": "See {INFTKEYMarketplaceV2-paymentToken}."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"royalty(address)": {
+					"details": "Royalty fee",
+					"params": {
+						"erc721Address": "to read royalty"
+					},
+					"returns": {
+						"_0": "royalty information"
+					}
+				},
+				"serviceFee()": {
+					"details": "See {INFTKEYMarketplaceV2-serviceFee}."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"withdrawBidForToken(address,uint256)": {
+					"details": "See {INFTKEYMarketplaceV2-withdrawBidForToken}. There must be a bid exists remove this bid record"
+				}
+			},
+			"title": "NFTKEY Marketplace contract V2 Note: Payment tokens usually is the chain native coin's wrapped token, e.g. WETH, WBNB",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"All/JacksonArtFoundation.sol": "JacksonArtFoundation"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+			]
+		},
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0x190dd6f8d592b7e4e930feb7f4313aeb8e1c4ad3154c27ce1cf6a512fc30d8cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ce8dfb62d0c4fa260d6eec8f1cd47f5f2a044e11bde5b31d18072fa6e7d9010",
+				"dweb:/ipfs/QmTyFztU3tLEcEDnqqiaW4UJetqsU77LXc6pjc9oTXCK5u"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
+			"keccak256": "0xf41ca991f30855bf80ffd11e9347856a517b977f0a6c2d52e6421a99b7840329",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b2717fd2bdac99daa960a6de500754ea1b932093c946388c381da48658234b95",
+				"dweb:/ipfs/QmP6QVMn6UeA3ByahyJbYQr5M6coHKBKsf3ySZSfbyA8R7"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0x9b72f93be69ca894d8492c244259615c4a742afc8d63720dbc8bb81087d9b238",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5a7b96e511be78d5cdf635c784e6ab8cdd38625bb8cafb8a80914a1c89cf0f6",
+				"dweb:/ipfs/QmVzTCwJxQAkjRQHboT5QrvsVJGWQHgfEjeTbvyxoKBrds"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0xab28a56179c1db258c9bf5235b382698cb650debecb51b23d12be9e241374b68",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://daae589a9d6fa7e55f99f86c0a16796ca490f243fb3693632c3711c0646c1d56",
+				"dweb:/ipfs/QmR3zpd7wNw3rcUdekwiv6FYHJqksuTCXLVioTxu6Fbxk3"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0xf96f969e24029d43d0df89e59d365f277021dac62b48e1c1e3ebe0acdd7f1ca1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ec772b45a624be516f1c81970caa8a2e144301e9d0921cbc1a2789fef39a1269",
+				"dweb:/ipfs/QmNyjwxCrGhQMyzLD93oUobJXVe9ceJvRvfXwbEtuxPiEj"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"@openzeppelin/contracts/utils/structs/EnumerableSet.sol": {
+			"keccak256": "0xc3ff3f5c4584e1d9a483ad7ced51ab64523201f4e3d3c65293e4ca8aeb77a961",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d7d3dd6067a994690471b5fc71b6f81fac3847798b37d404f74db00b4d3c3d0e",
+				"dweb:/ipfs/QmRHF1RarifjNi93RttouNPkYZGyu6CD926PgRDzD5iL35"
+			]
+		},
+		"All/INFTKEYMarketplaceRoyalty.sol": {
+			"keccak256": "0x06de685537b2a4422f65ead445d12e9bc5942436308417375fdb6340697ef54f",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://03cc010a6ed792e45f1518092cd0f45ab08d627f1e4598aabf5ec50ff4ac4c32",
+				"dweb:/ipfs/QmPfGZkcCzcKZZuQrj7RCm3KiVAPyS3HDea8gvNKyEUJoS"
+			]
+		},
+		"All/INFTKEYMarketplaceV2.sol": {
+			"keccak256": "0x337b2201222426e369995f22212941a21434b325c247c99d371910c5d97f500f",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://01bf4a1e41ebb21447b82ca00f1eb89cb63426eee02344e2e70b41195e399706",
+				"dweb:/ipfs/QmXDWcKeS5RqQHUD3zjLWJK7xkmecBPzeXu6Zhz8ZujSGd"
+			]
+		},
+		"All/JacksonArtFoundation.sol": {
+			"keccak256": "0x07316fcaa157f284b192eabaf14b43803f5d3b6e276feda4088a9695a9e2d586",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://f67b3bfda7c42d704fb3909da2aa505c6e0b9c48f0c09c59e404d5ce4731ccbe",
+				"dweb:/ipfs/QmfYyEtnVxDzzTTbpQ4SD2wMobx7goxPRh29CaQdPfQqdz"
+			]
+		},
+		"All/NFTKEYMarketplaceRoyalty.sol": {
+			"keccak256": "0x4e613a8218d5d9a4510cf69f4d60778944b3952c4006c63baa84afed8c6c41ab",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://41d21ebc22b078cc34f2c9943766eb6313c5e197d136fc8e691321ba774556c9",
+				"dweb:/ipfs/Qme98KTqkxPanEtLWLUQ3eKgSgnWHrwPpGNzySTrQrJHiM"
+			]
+		}
+	},
+	"version": 1
+}
